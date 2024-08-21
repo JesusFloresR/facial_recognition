@@ -48,6 +48,7 @@ def _facial_recognition():
 
     while True:
         iterator += 1
+        iterator += 1
         check,frame = video.read()
 
         if xmin_ is not None and ymin_ is not None and xmax_ is not None and ymax_ is not None:
