@@ -18,6 +18,7 @@ def model_training_controller ():
     for people in people_list:
         path_user = f"{path}\\{people}"
         for name_img in os.listdir(path_user):
+            print('Cara direccion: ', f"{path_user}\\{name_img}")
             img = cv2.imread(f"{path_user}\\{name_img}", 0)
             labels.append(people)
             faces.append(img)
@@ -27,7 +28,7 @@ def model_training_controller ():
     print('Creando el modelo...')
     model = cv2.face.LBPHFaceRecognizer_create()
     print('Entrenando al modelo...')
-    model.train(faces, encoded_labels)
+    model.train(np.array(faces), np.array(encoded_labels))
     print('Exportando el modelo...')
     model.write('./src/resources/modeloLBPHFace.xml')
     dump(label_encoder, './src/resources/label_encoder.pkl')

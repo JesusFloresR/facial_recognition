@@ -18,7 +18,7 @@ def save_faces_per_user (f):
             iterator += 1
             check,frame = video.read()
 
-            if iterator % 20 == 0:
+            if iterator % 5 == 0:
                 frame_copy = frame.copy()
                 xmin_, ymin_, xmax_, ymax_ = save_face(frame_copy, path, name + str(num_img))
                 num_img += 1
